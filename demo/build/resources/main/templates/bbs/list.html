@@ -46,7 +46,7 @@
                 <a th:href="@{/bbs/list(page_no=0, page_size=10)}">처음으로</a>
 
                 <a th:href="${page_no <= 1} ? '#' : @{/bbs/list(page_no=${page_no-1}, page_size=10)}">이전</a>
-                <span th:each="page, status:${#numbers.sequence(1, 10)}">
+                <span th:each="page, status:${#numbers.sequence(0, 10)}">
                     <span th:if="${page_no.equals(page)}" th:text="${page}"></span>
                     <span th:unless="${page_no.equals(page)}">
                         &nbsp;<a th:href="@{/bbs/list(page_no=${page}, page_size=10)}" th:text="${page}"></a>

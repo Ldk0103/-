@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import net.fullstack10.demo.domain.BbsEntity;
 import net.fullstack10.demo.dto.BbsDTO;
+import net.fullstack10.demo.dto.PageRequestDTO;
 import net.fullstack10.demo.repository.BbsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -30,10 +31,16 @@ public class BbsServiceImpl implements BbsServiceIf {
     }
 
     @Override
-    public List<BbsDTO> bbsList(int page_no, int page_size ) {
-        Pageable pageable = PageRequest.of(page_no, page_size, Sort.by("idx").descending());
-        Page<BbsEntity> entityList = bbsRepository.findAll(pageable);
-        List<BbsDTO> bbsDTOList = entityList.stream().map(entity -> modelMapper.map(entity, BbsDTO.class)).collect(Collectors.toList());
+    public List<BbsDTO> bbsList(PageRequestDTO pageRequestDTO) {
+        // 조건에 따라서 DB 조회
+        Pageable pageable = PageRequest.of(pageRequestDTO.getPage_no(),
+                pageRequestDTO.getPage_size(),
+                Sort.by("idx").descending());
+
+        Page<BbsEntity> result = bbsRepository.findAll(pageable);
+        List<BbsDTO> bbsDTOList = result.getContent().stream()
+                .map(entity -> modelMapper.map(entity, BbsDTO.class))
+                .collect(Collectors.toList());
         return bbsDTOList;
     }
 

@@ -75,4 +75,5 @@ public class BbsServiceTests {
         log.info("bsServiceTests >> testBbsView >> rtnResult : {}", rtnResult);
         log.info("================================");
     }
+
 }

@@ -64,6 +64,9 @@ public class BbsController {
             @ModelAttribute BbsDTO bbsDTO,
             Model model
     ) {
+//        bbsDTO.setReg_date(LocalDateTime.now());
+//        bbsDTO.setModify_date(LocalDateTime.now());
+
         bbsService.bbsRegist(bbsDTO);
         return "redirect:/bbs/list";
     }
