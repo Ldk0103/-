@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<h1>Thymeleaf 기본 구문</h1>
+
+<h2>변수선언</h2>
+<div th:with="num1=${10}, num2=${20},num3=${30}">
+  <h2 th:text="${num1 + num2 + num3}"></h2>
+  <h2>[[${num1 + num2 + num3}]]</h2>
+    <p th:text="${num1} + ${num1}"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net/nz/thymeleaf/layout">
+<head layout:fragment="header-content">
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<div layout:fragment="top-content">
+    <p>TOP 영역</p>
+</div>
+<div layout:fragment="content">
+    <p>CONTENT 영역</p>
+</div>
+<div layout:fragment="page-content">
+    <p>페이지 영역</p>
+</div>
+<div layout:fragment="footer-content">
+    <p>FOOTER 영역</p>
+</div>
+<th:block layout:fragment="script">
+
+</th:block>
+</body>
+</html>

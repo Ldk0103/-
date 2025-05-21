@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    <style>
+        table, tr, td {
+            border:1px solid #000;
+            border-collapse: collapse;
+            font-size:12px;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<form action="/bbs/regist" method="post">
+    <table>
+        <tr>
+            <td>유저아이디</td>
+            <td>글 제목</td>
+            <td>글 내용</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="user_id"/>
+            </td>
+            <td>
+                <input type="text" name="title"/>
+            </td>
+            <td>
+                <textarea name="content"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1"><a th:href="@{/bbs/list}">뒤로가기</a></td>
+            <td colspan="1">
+                <input type="submit" value="등록하기"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

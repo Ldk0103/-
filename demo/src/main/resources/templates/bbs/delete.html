@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<style>
+    table, tr, td {
+        border:1px solid #000;
+        border-collapse: collapse;
+        font-size:12px;
+        padding: 5px;
+        text-align: center;
+    }
+</style>
+<body>
+<table>
+    <tr>
+        <td>글 번호</td>
+        <td>유저 아이디</td>
+        <td>글 제목</td>
+        <td>글 내용</td>
+        <td>조회수</td>
+        <td>작성날짜</td>
+    </tr>
+    <tr>
+        <td>
+            <p th:text="${dto.idx}"></p>
+            <input type="hidden" name="idx" th:value="${dto.idx}"/>
+        </td>
+        <td><p th:text="${dto.user_id}"></p></td>
+        <td><p th:text="${dto.title}"></p></td>
+        <td><p th:text="${dto.content}"></p></td>
+        <td><p th:text="${dto.read_cnt}"></p></td>
+        <td><p th:text="${dto.reg_date}"></p></td>
+    </tr>
+    <tr>
+        <td colspan="2"><a th:href="@{/bbs/list}">뒤로가기</a></td>
+        <td colspan="2"><a th:href="@{/bbs/modify(idx=${dto.idx})}">수정하기</a></td>
+        <td colspan="2"><a th:href="@{/bbs/delete(idx=${dto.idx})}">삭제하기</a></td>
+    </tr>
+</table>
+</body>
+</html>
